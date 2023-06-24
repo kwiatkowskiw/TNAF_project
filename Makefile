@@ -11,7 +11,7 @@ preview:
 		vite preview
 
 prettier:
-		npx prettier --ignore-path .gitignore --check "**/*.+(js|ts|json)"
+		prettier --ignore-path .gitignore --check "**/*.+(js|ts|json)"
 
 prettier_fix:
 		prettier --ignore-path .gitignore --write "**/*.+(js|ts|json)"
