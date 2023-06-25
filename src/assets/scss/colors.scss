@@ -1,0 +1,21 @@
+$clr-text: #000;
+$clr-background: #ebf0ef;
+$primary-btn: #3d4c51;
+$secondary-btn: #dcdee5;
+$clr-500: #384447;
+$clr-600: #2e3638;
+$clr-700: #1f2223;
+$clr-800: #0f1010;
+
+@media (prefers-color-scheme: dark) {
+  $clr-text: #efefdc;
+  $clr-background: #111108;
+  $primary-btn: #4f4da8;
+  $secondary-btn: #2a2a13;
+  $clr-500: #4B4992;
+  $clr-600: #444375;
+  $clr-700: #333248;
+  $clr-800: #1C1C21;
+}
+
+

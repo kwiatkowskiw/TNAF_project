@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header></header>
-  <main></main>
+  <header>dupa</header>
+  <main>
+    <RouterView/>
+  </main>
   <footer></footer>
 </template>

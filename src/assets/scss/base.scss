@@ -1,3 +1,6 @@
+@use 'colors' as color;
+@use 'fonts' as font;
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -14,6 +17,25 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: min(100% - 3rem, 120ch);
+  margin-inline: auto;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: font.$fs-400;
+  line-height: 1.6;
+  background-color: color.$clr-background;
+  color: color.$clr-text;
+}
+
+h1 {
+  font-size: font.$fs-700;
+}
+
+h2 {
+  font-size: font.$fs-600;
+}
+
+h3 {
+  font-size: font.$fs-500;
 }
 
 footer {
