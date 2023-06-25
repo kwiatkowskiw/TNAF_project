@@ -10,9 +10,6 @@ build:
 preview:
 		vite preview
 
-prettier:
-		prettier --ignore-path .gitignore --check "**/*.+(js|ts|json)"
-
 prettier_fix:
 		prettier --ignore-path .gitignore --write "**/*.+(js|ts|json)"
 
@@ -28,6 +25,6 @@ style_lint:
 style_lint_fix:
 		stylelint "**/*.{css,scss,sass}" --fix
 
-dev_tools: prettier lint style_lint
+dev_tools: lint style_lint
 
 fix: prettier_fix lint_fix style_lint_fix
