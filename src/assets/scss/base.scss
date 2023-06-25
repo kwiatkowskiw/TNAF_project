@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: min(100% - 3rem, 120ch);
+  max-width: 1440px;
   margin-inline: auto;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: font.$fs-400;
@@ -38,11 +38,23 @@ h3 {
   font-size: font.$fs-500;
 }
 
-footer {
-  margin-top: auto;
-}
-
 img {
   max-width: 100%;
   display: block;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  font-size: font.$fs-300;
+
+  > img {
+    max-width: 50px;
+  }
+}
+
+footer {
+  margin-top: auto;
 }
