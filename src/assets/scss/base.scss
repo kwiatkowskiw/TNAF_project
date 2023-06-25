@@ -1,3 +1,6 @@
+@use 'colors' as color;
+@use 'fonts' as font;
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -14,13 +17,44 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 1440px;
+  margin-inline: auto;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: font.$fs-400;
+  line-height: 1.6;
+  background-color: color.$clr-background;
+  color: color.$clr-text;
 }
 
-footer {
-  margin-top: auto;
+h1 {
+  font-size: font.$fs-700;
+}
+
+h2 {
+  font-size: font.$fs-600;
+}
+
+h3 {
+  font-size: font.$fs-500;
 }
 
 img {
   max-width: 100%;
   display: block;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  font-size: font.$fs-300;
+
+  > img {
+    max-width: 50px;
+  }
+}
+
+footer {
+  margin-top: auto;
 }
