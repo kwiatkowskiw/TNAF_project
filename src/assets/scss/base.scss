@@ -14,16 +14,19 @@ html {
 }
 
 body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: font.$fs-300;
+  line-height: 1.6;
+  background-color: color.$clr-background;
+  color: color.$clr-text-primary;
+}
+
+.wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   max-width: 1440px;
   margin-inline: auto;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: font.$fs-400;
-  line-height: 1.6;
-  background-color: color.$clr-background;
-  color: color.$clr-text;
 }
 
 h1 {
@@ -56,5 +59,23 @@ header {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   margin-top: auto;
+  color: color.$clr-text-secondary;
+  background-color: color.$clr-600;
+  padding: 2rem 1.5rem;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-logos {
+  display: flex;
+  gap: 1.5rem;
 }
