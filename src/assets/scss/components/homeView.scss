@@ -1,0 +1,41 @@
+@use '../colors' as color;
+
+.home {
+  display: grid;
+  gap: 2rem;
+  place-items: center;
+  padding: 2rem 3rem;
+  margin-top: 2rem;
+  margin-bottom: auto;
+  background-color: color.$clr-background-secondary;
+  border-radius: 8px;
+}
+
+.home-image {
+  width: 30%;
+}
+
+.home-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.home-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-icon {
+  padding: 2rem;
+  background-color: color.$clr-background;
+  border-radius: 6px;
+}
