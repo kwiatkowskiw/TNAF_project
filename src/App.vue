@@ -1,9 +1,8 @@
 <script setup lang="ts"></script>
-
 <template>
   <div class="wrapper">
     <header>
-      <img class="logo-image" src="./assets/logo.svg" alt="logo"/>
+      <img class="logo-image" src="./assets/img/logo.svg" alt="logo"/>
       <nav>
         <a href="/">Home</a>
         <a href="/">Products</a>

@@ -1,5 +1,7 @@
 @use 'colors' as color;
 @use 'fonts' as font;
+@forward "components";
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -42,7 +44,8 @@ h3 {
 }
 
 img {
-  max-width: 100%;
+  object-fit: cover;
+  object-position: bottom;
   display: block;
 }
 
