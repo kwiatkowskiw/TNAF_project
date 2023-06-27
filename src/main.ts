@@ -1,19 +1,19 @@
 import "./assets/scss/base.scss";
 
-import {createApp} from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
-import {createRouter, createWebHistory} from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import ProductsView from "@/views/ProductsView.vue";
 
 const routes = [
-    {path: "/", component: HomeView, name: "home"},
-    {path: "/products", component: ProductsView, name: "products"}
+  { path: "/", component: HomeView, name: "home" },
+  { path: "/products", component: ProductsView, name: "products" },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 
 const app = createApp(App);

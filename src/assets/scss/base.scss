@@ -77,9 +77,8 @@ footer {
 
 .footer-info {
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .footer-logos {
