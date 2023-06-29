@@ -65,6 +65,18 @@ main {
   margin-top: 2rem;
 }
 
+button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline-color: transparent;
+  }
+}
+
 footer {
   display: flex;
   flex-direction: column;
