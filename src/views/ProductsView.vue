@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {useProductApi} from "@/composables/useProductApi";
-import {Product} from "@/composables/modal/interfaces";
-import {ref, Ref} from "vue";
-
-const {getProducts} = useProductApi();
-const productResponse: Ref<Product[]> = ref([]);
-productResponse.value = await getProducts();
+import Spinner from "@/components/Spinner.vue";
+import Products from "@/components/Products.vue";
 </script>
 
 <template>
-  {{ productResponse }}
+  <Suspense>
+    <Products/>
+    <template #fallback>
+      <Spinner/>
+    </template>
+  </Suspense>
 </template>

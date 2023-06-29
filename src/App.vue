@@ -1,6 +1,3 @@
-<script setup lang="ts">
-import Spinner from "@/components/Spinner.vue";
-</script>
 <template>
   <div class="wrapper">
     <header>
@@ -12,16 +9,7 @@ import Spinner from "@/components/Spinner.vue";
       </nav>
     </header>
     <main>
-      <router-view v-slot="{Component}">
-        <Suspense timeout="0">
-          <template #default>
-            <component :is="Component" :key="$route.path"/>
-          </template>
-          <template #fallback>
-            <Spinner/>
-          </template>
-        </Suspense>
-      </router-view>
+      <router-view></router-view>
     </main>
     <footer>
       <div class="footer-info">
