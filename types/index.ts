@@ -1,14 +1,14 @@
 export type IProduct = {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: Category;
-    images: string[];
-}
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: ICategory;
+  images: string[];
+};
 
-type Category = {
-    id: number;
-    name: string;
-    image: string;
+export type ICategory = {
+  id: number;
+  name: string;
+  image: string;
 };

@@ -1,0 +1,20 @@
+@use '../../colors' as color;
+
+.category-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-inline: 1rem;
+  list-style-type: none;
+}
+
+.filter {
+  &:hover {
+    color: color.$clr-blue;
+    cursor: pointer;
+  }
+
+  &-active {
+    color: color.$clr-blue;
+  }
+}
