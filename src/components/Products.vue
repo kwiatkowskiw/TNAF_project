@@ -4,7 +4,6 @@ import ProductFilters from "@/components/ProductFilters.vue";
 import {useProductApi} from "@/composables/useProductApi";
 import {ref} from "vue";
 import type {IProduct} from "../../types";
-import Spinner from "@/components/Spinner.vue";
 
 const {getProducts, getProductsByCategory} = useProductApi();
 
