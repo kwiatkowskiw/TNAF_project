@@ -21,8 +21,8 @@ function setActiveItem(id) {
 
 
 <template>
+  <h5 class="category-title">Category</h5>
   <ul class="category-filter">
-    <h5>Category</h5>
     <li v-for="filter in filters"
         :key="filter.id"
         class="filter"
