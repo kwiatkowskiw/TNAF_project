@@ -1,0 +1,51 @@
+@use '../colors' as color;
+@use '../fonts' as font;
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  background: color.$clr-background-secondary;
+  padding-top: 0.625rem;
+  height: 100%;
+
+  &-image {
+    height: 7.68rem;
+    aspect-ratio: 1/1;
+    margin-bottom: 1rem;
+  }
+
+  &-title {
+    text-align: center;
+    padding-inline: 1rem;
+  }
+
+  &-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 1rem 0;
+    padding-inline: 1rem;
+  }
+
+  &-price {
+    margin-top: auto;
+  }
+
+  &-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background: color.$secondary-btn;
+    padding-block: 1rem;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    font-size: font.$fs-300;
+
+    &:hover {
+      color: color.$clr-text-secondary;
+      background: color.$clr-500;
+    }
+  }
+}

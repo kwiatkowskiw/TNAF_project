@@ -12,9 +12,9 @@ const props = defineProps<{
 <template>
   <div class="product">
     <img class="product-image" :src="images[0]" :alt="title"/>
-    <h3>{{title}}</h3>
-    <p>{{description}}</p>
-    <h3>{{price}}$</h3>
+    <h4 class="product-title">{{title}}</h4>
+    <p class="product-description">{{description}}</p>
+    <h5 class="product-price">{{price}}$</h5>
     <button class="product-btn" type="button">Details</button>
   </div>
 </template>
