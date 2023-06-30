@@ -3,19 +3,18 @@ import Product from "@/components/Product.vue";
 import ProductFilters from "@/components/ProductFilters.vue";
 import {useProductApi} from "@/composables/useProductApi";
 import {ref} from "vue";
-import type {IProduct} from "../../types";
+import type {IFilter, IProduct} from "../../types";
 
-const {getProducts, getProductsByCategory} = useProductApi();
+const {getProducts, getProductsByFilters} = useProductApi();
 
 const loadingProducts = ref<boolean>(false)
 
 const productResponse = ref<IProduct[]>([]);
 productResponse.value = await getProducts();
 
-async function updateProduct(categoryId: number) {
+async function updateProduct(filters: IFilter) {
   loadingProducts.value = true;
-  productResponse.value = await getProductsByCategory(categoryId);
-  console.log(productResponse.value)
+  productResponse.value = await getProductsByFilters(filters);
   loadingProducts.value = false;
 }
 
@@ -25,7 +24,7 @@ async function updateProduct(categoryId: number) {
 <template>
   <div class="products">
     <aside class="products-filters">
-      <ProductFilters @change-category="updateProduct"/>
+      <ProductFilters @search-products="updateProduct"/>
     </aside>
     <section class="products-view" :class="loadingProducts && 'products-suspense-view'">
       <span v-if="productResponse.length == 0" class="products-empty">No products with that filter</span>
