@@ -1,0 +1,25 @@
+@use '../../colors' as color;
+@use '../../fonts' as font;
+
+.price-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.price-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-submit {
+  align-self: center;
+  padding: 1rem;
+  background: color.$secondary-btn;
+  font-size: 1rem;
+
+  &:hover {
+    color: color.$clr-text-secondary;
+    background: color.$clr-500;
+  }
+}
