@@ -9,8 +9,8 @@ const emit = defineEmits<{
 
 const {errors, handleSubmit, defineInputBinds} = useForm({
   validationSchema: yup.object({
-    price_min: yup.number().required().moreThan(0),
-    price_max: yup.number().required().moreThan(0),
+    price_min: yup.number().typeError('Please provide minimum price').required("Please provide minimum price").moreThan(0, "Invalid Price"),
+    price_max: yup.number().typeError('Please provide minimum price').required("Please provide maximum price").moreThan(0, "Invalid price"),
   })
 })
 
