@@ -18,12 +18,16 @@
   background: color.$secondary-btn;
   font-size: 1rem;
 
+  &:disabled {
+    pointer-events: none;
+  }
+
   &:hover {
     color: color.$clr-text-secondary;
     background: color.$clr-500;
   }
 }
 
-.price-error{
+.price-error {
   color: color.$clr-error
 }
