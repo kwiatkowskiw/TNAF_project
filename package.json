@@ -12,6 +12,7 @@
   "dependencies": {
     "vee-validate": "^4.10.3",
     "vue": "^3.3.4",
+    "vue-awesome-paginate": "^1.1.46",
     "vue-router": "^4.2.2",
     "yup": "^1.2.0"
   },

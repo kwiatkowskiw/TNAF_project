@@ -19,7 +19,7 @@ export type IPriceFilter = {
 };
 
 export type IFilter = {
-  categoryId: string | null;
+  categoryId: number | null;
   price_min: string | null;
   price_max: string | null;
 };

@@ -34,7 +34,9 @@ export const useProductApi = () => {
     });
   }
 
-  async function getProductsByFilters(filters: IFilter): Promise<IProduct[]> {
+  async function filterProducts(
+    filters: IFilter | undefined
+  ): Promise<IProduct[]> {
     const url: string = getUrlByFilters(filters);
     console.log(url);
     return fetch(`https://api.escuelajs.co/api/v1/products/?${url}`).then(
@@ -47,7 +49,25 @@ export const useProductApi = () => {
     );
   }
 
-  function getUrlByFilters(filters: IFilter): string {
+  async function filterProductsByPage(
+    filters: IFilter | null,
+    page: number
+  ): Promise<IProduct[]> {
+    const url: string | null = getUrlByFilters(filters);
+    return fetch(
+      `https://api.escuelajs.co/api/v1/products/?${url}&offset=${page}&limit=6`
+    ).then((response) => {
+      if (!response.ok) {
+        return null;
+      }
+      return response.json() as Promise<IProduct[]>;
+    });
+  }
+
+  function getUrlByFilters(filters: IFilter | null): string | null {
+    if (!filters) {
+      return;
+    }
     let url = "";
     for (const [key, value] of Object.entries(filters)) {
       if (!value) {
@@ -56,16 +76,17 @@ export const useProductApi = () => {
       if (url !== "") {
         url += "&";
       }
-      const keyQuery: string = key;
-      const query: string = keyQuery.concat("=", value);
+      const query: string = key.concat("=", value);
       url += query;
     }
     return url;
   }
+
   return {
     getProducts,
     getCategories,
+    filterProducts,
+    filterProductsByPage,
     getProductsByCategory,
-    getProductsByFilters,
   };
 };
