@@ -16,6 +16,13 @@
   height: max-content;
 }
 
+.products-container {
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  width: 100%;
+}
+
 .products-view {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -24,7 +31,6 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  width: 100%;
   height: max-content;
 }
 
@@ -35,4 +41,5 @@
 .products-suspense-view {
   opacity: 0.5;
   pointer-events: none;
+  height: 100%;
 }

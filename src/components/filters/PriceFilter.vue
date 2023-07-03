@@ -2,6 +2,7 @@
 import type {IPriceFilter} from "../../../types";
 import {useForm} from "vee-validate";
 import * as yup from 'yup';
+import {computed} from "vue";
 
 const emit = defineEmits<{
   changePrice: [price: IPriceFilter],
@@ -9,8 +10,10 @@ const emit = defineEmits<{
 
 const {errors, handleSubmit, defineInputBinds} = useForm({
   validationSchema: yup.object({
-    price_min: yup.number().typeError('Please provide minimum price').required("Please provide minimum price").moreThan(0, "Invalid Price"),
-    price_max: yup.number().typeError('Please provide minimum price').required("Please provide maximum price").moreThan(0, "Invalid price"),
+    price_min: yup.number().transform((value => isNaN(value) ? null : value))
+        .notRequired().moreThan(0, "Invalid Price"),
+    price_max: yup.number().transform((value => isNaN(value) ? null : value))
+        .notRequired().moreThan(0, "Invalid price"),
   })
 })
 
@@ -19,6 +22,10 @@ const price_max = defineInputBinds('price_max');
 
 const onSubmit = handleSubmit(values => {
   emit('changePrice', <IPriceFilter>values)
+})
+
+const isDisabled = computed(() => {
+  return !(price_min.value.value || price_max.value.value);
 })
 </script>
 
@@ -35,6 +42,7 @@ const onSubmit = handleSubmit(values => {
       <input id="price_max" type="number" name="price_max" v-bind="price_max"/>
     </div>
     <div class="price-error">{{ errors.price_max }}</div>
-    <button class="price-submit" type="submit">Search</button>
+    <button :disabled="isDisabled" class="price-submit" type="submit">Search
+    </button>
   </form>
 </template>

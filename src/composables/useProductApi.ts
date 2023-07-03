@@ -36,6 +36,7 @@ export const useProductApi = () => {
 
   async function getProductsByFilters(filters: IFilter): Promise<IProduct[]> {
     const url: string = getUrlByFilters(filters);
+    console.log(url);
     return fetch(`https://api.escuelajs.co/api/v1/products/?${url}`).then(
       (response) => {
         if (!response.ok) {
