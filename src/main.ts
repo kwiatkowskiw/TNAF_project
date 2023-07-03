@@ -1,6 +1,8 @@
 import "./assets/scss/base.scss";
+import "vue-awesome-paginate/dist/style.css";
 
 import { createApp } from "vue";
+import VueAwesomePaginate from "vue-awesome-paginate";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
@@ -18,4 +20,5 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
+app.use(VueAwesomePaginate);
 app.mount("#app");

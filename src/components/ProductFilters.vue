@@ -15,7 +15,7 @@ const {getCategories} = useProductApi();
 const categoryResponse = ref<ICategory[]>([]);
 categoryResponse.value = await getCategories();
 
-function changeCategory(categoryId: number) {
+function changeCategory(categoryId: number | null) {
   filters.categoryId = categoryId;
   emit('searchProducts', filters);
 }
@@ -23,7 +23,6 @@ function changeCategory(categoryId: number) {
 function changePrice(price: IPriceFilter) {
   filters.price_min = price.price_min;
   filters.price_max = price.price_max;
-  console.log(filters);
   emit('searchProducts', filters);
 }
 
