@@ -1,19 +1,12 @@
-@use '../colors' as color;
-@use '../fonts' as font;
-
 .products {
   display: flex;
   gap: 1rem;
 }
 
-.products-filters {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 2rem;
-  min-width: 20rem;
-  background: color.$clr-white;
-  height: max-content;
+@media (width < 958px) {
+  .products {
+    flex-direction: column;
+  }
 }
 
 .products-container {
@@ -23,7 +16,7 @@
   width: 100%;
 }
 
-.products-pagination{
+.products-pagination {
   align-self: flex-end;
 }
 

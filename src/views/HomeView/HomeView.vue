@@ -29,5 +29,5 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/scss/components/homeView";
+@import "HomeView";
 </style>

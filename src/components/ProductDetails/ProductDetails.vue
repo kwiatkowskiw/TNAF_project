@@ -42,3 +42,7 @@ function changeItem(id: number, imageUrl: string) {
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+@import "ProductDetails";
+</style>
