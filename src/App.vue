@@ -15,10 +15,6 @@
         <h3>TNAF Project</h3>
         <span>designed by Wiktor Kwiatkowski</span>
       </div>
-      <div class="footer-logos">
-        <i class="gg-instagram"></i>
-        <i class="gg-facebook"></i>
-      </div>
     </footer>
   </div>
 </template>
