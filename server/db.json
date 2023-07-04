@@ -3816,13 +3816,6 @@
       "image": "https://picsum.photos/640/640?r=4025",
       "creationAt": "2023-07-03T01:48:56.000Z",
       "updatedAt": "2023-07-03T01:48:56.000Z"
-    },
-    {
-      "id": 7,
-      "name": "freecode image",
-      "image": "https://www.freecodecamp.org/news/content/images/size/w2000/2021/10/angular.png",
-      "creationAt": "2023-07-03T03:13:14.000Z",
-      "updatedAt": "2023-07-03T03:14:30.000Z"
     }
   ],
   "users": [
