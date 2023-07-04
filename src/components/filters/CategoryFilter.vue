@@ -10,8 +10,9 @@ const emit = defineEmits<{
   changeCategory: [id: number],
 }>()
 
-const activeItem = ref<number | null>(null);
-function setActiveItem(id) {
+const activeItem = ref<number>(0);
+
+function setActiveItem(id: number) {
   activeItem.value = id;
   emit('changeCategory', id);
 }

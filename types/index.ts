@@ -7,8 +7,18 @@ export type IProduct = {
   images: string[];
 };
 
+export type IProducts = {
+  data: IProduct[];
+  total: number;
+};
+
+export type ICategories = {
+  data: ICategory[];
+  total: number;
+};
+
 export type ICategory = {
-  id: string;
+  id: number;
   name: string;
   image: string;
 };
@@ -19,7 +29,7 @@ export type IPriceFilter = {
 };
 
 export type IFilter = {
-  categoryId: number | null;
-  price_min: string | null;
-  price_max: string | null;
+  categoryId: string | undefined;
+  price_min: string | undefined;
+  price_max: string | undefined;
 };

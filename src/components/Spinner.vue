@@ -8,6 +8,7 @@
 .spinner-content {
   display: grid;
   place-items: center;
+  width: 100%;
 }
 
 .spinner {

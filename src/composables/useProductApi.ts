@@ -1,83 +1,54 @@
-import type { ICategory, IFilter, IProduct } from "../../types";
+import type { ICategories, IFilter, IProducts } from "../../types";
 
 export const useProductApi = () => {
-  async function getProducts(): Promise<IProduct[]> {
-    return fetch(`https://api.escuelajs.co/api/v1/products`).then(
+  async function getProducts(): Promise<IProducts> {
+    return fetch(`http://localhost:3000/products?_page=1&_limit=6`).then(
       (response) => {
         if (!response.ok) {
           throw new Error(response.statusText);
         }
-        return response.json() as Promise<IProduct[]>;
+        return response.json() as Promise<IProducts>;
       }
     );
   }
 
-  async function getCategories(): Promise<ICategory[]> {
-    return fetch(`https://api.escuelajs.co/api/v1/categories`).then(
-      (response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json() as Promise<ICategory[]>;
-      }
-    );
-  }
-
-  async function getProductsByCategory(id: number): Promise<IProduct[]> {
+  async function filterProducts(
+    filters?: IFilter,
+    page = 1
+  ): Promise<IProducts> {
+    const url: string = getUrlByFilters(filters);
     return fetch(
-      `https://api.escuelajs.co/api/v1/products/?categoryId=${id}`
+      `http://localhost:3000/products?${url}&_page=${page}&_limit=6`
     ).then((response) => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      return response.json() as Promise<IProduct[]>;
+      return response.json() as Promise<IProducts>;
     });
   }
 
-  async function filterProducts(
-    filters: IFilter | undefined
-  ): Promise<IProduct[]> {
-    const url: string = getUrlByFilters(filters);
-    console.log(url);
-    return fetch(`https://api.escuelajs.co/api/v1/products/?${url}`).then(
-      (response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json() as Promise<IProduct[]>;
-      }
-    );
-  }
-
-  async function filterProductsByPage(
-    filters: IFilter | null,
-    page: number
-  ): Promise<IProduct[]> {
-    const url: string | null = getUrlByFilters(filters);
-    return fetch(
-      `https://api.escuelajs.co/api/v1/products/?${url}&offset=${page}&limit=6`
-    ).then((response) => {
+  async function getCategories(): Promise<ICategories> {
+    return fetch(`http://localhost:3000/category`).then((response) => {
       if (!response.ok) {
-        return null;
+        throw new Error(response.statusText);
       }
-      return response.json() as Promise<IProduct[]>;
+      return response.json() as Promise<ICategories>;
     });
   }
 
-  function getUrlByFilters(filters: IFilter | null): string | null {
+  function getUrlByFilters(filters: IFilter | undefined): string {
     if (!filters) {
-      return;
+      return "";
     }
     let url = "";
-    for (const [key, value] of Object.entries(filters)) {
+    for (const value of Object.values(filters)) {
       if (!value) {
         continue;
       }
       if (url !== "") {
         url += "&";
       }
-      const query: string = key.concat("=", value);
-      url += query;
+      url += value;
     }
     return url;
   }
@@ -86,7 +57,5 @@ export const useProductApi = () => {
     getProducts,
     getCategories,
     filterProducts,
-    filterProductsByPage,
-    getProductsByCategory,
   };
 };
