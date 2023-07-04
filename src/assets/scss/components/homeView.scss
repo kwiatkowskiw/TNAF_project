@@ -1,40 +1,39 @@
 @use '../colors' as color;
 
 .home {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
   gap: 2rem;
-  place-items: center;
-  padding: 2rem 3rem;
   margin-bottom: auto;
   background-color: color.$clr-background-secondary;
   border-radius: 8px;
+
+  &-image {
+    width: 50%;
+  }
+
+  &-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    align-items: center;
+  }
 }
 
-.home-image {
-  width: 30%;
-}
+.item {
+  &-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.home-items {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 3rem;
-}
-
-.home-item {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.item-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.item-icon {
-  padding: 2rem;
-  background-color: color.$clr-background;
-  border-radius: 6px;
+  &-icon {
+    padding: 2rem;
+    background-color: color.$clr-background;
+    border-radius: 6px;
+  }
 }
