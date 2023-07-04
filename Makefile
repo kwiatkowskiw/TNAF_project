@@ -1,8 +1,11 @@
 install:
 		npm ci
 
-start:
+start_developing:
 		vite
+
+start_api:
+		node server/server.js --watch server/db.json
 
 build:
 		vite build

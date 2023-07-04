@@ -2,49 +2,29 @@
 import Product from "@/components/Product.vue";
 import ProductFilters from "@/components/ProductFilters.vue";
 import {useProductApi} from "@/composables/useProductApi";
-import {onBeforeMount, ref} from "vue";
-import type {IFilter, IProduct} from "../../types";
+import {ref} from "vue";
+import type {IFilter, IProducts} from "../../types";
 import Pagination from "@/components/Pagination.vue";
 
-const {getProducts, filterProducts, filterProductsByPage} = useProductApi();
-const products = ref<IProduct[]>([]);
-const lengthProducts = ref<number>(0);
-const limitOfProducts: number = 6;
-const currentPageNumber = ref<number>(1);
+const {getProducts, filterProducts} = useProductApi();
 
-onBeforeMount(async () => {
-  products.value = await getProducts();
-  lengthProducts.value = products.value.length;
-  if (lengthProducts.value > limitOfProducts) {
-    products.value = products.value.slice(0, limitOfProducts);
-  }
-})
+const products = ref<IProducts>({data: [], total: 0});
+products.value = await getProducts();
+const currentFilters = ref<IFilter>();
 
-const currentFilters = ref<IFilter | null>(null);
 const loadingProducts = ref<boolean>(false)
-
 async function filter(filters: IFilter) {
-  currentPageNumber.value = 1;
   loadingProducts.value = true;
   currentFilters.value = filters;
-  products.value = await filterProducts(filters);
-  if (products) {
-    lengthProducts.value = products.value.length;
-
-    if (lengthProducts.value > limitOfProducts) {
-      products.value = products.value.slice(0, limitOfProducts);
-    }
-  }
+  products.value = await filterProducts(currentFilters.value)
   loadingProducts.value = false;
 }
 
 async function nextPage(page: number) {
   loadingProducts.value = true;
-  products.value = await filterProductsByPage(currentFilters.value, page);
+  products.value = await filterProducts(currentFilters.value, page);
   loadingProducts.value = false;
 }
-
-
 </script>
 
 <template>
@@ -52,13 +32,13 @@ async function nextPage(page: number) {
     <aside class="products-filters">
       <ProductFilters @search-products="filter"/>
     </aside>
-    <template v-if="products.length > 0">
+    <template v-if="products.data.length > 0">
       <div class="products-container" :class="loadingProducts && 'products-suspense-view'">
         <section class="products-pagination">
-          <Pagination :currentPage="currentPageNumber" :products-length="lengthProducts" @change-page="nextPage"/>
+          <Pagination :productsLength="products.total" @change-page="nextPage"/>
         </section>
         <section class="products-view">
-          <Product v-for="product in products" :key="product.id"
+          <Product v-for="product in products.data" :key="product.id"
                    :title="product.title"
                    :images="product.images"
                    :price="product.price"

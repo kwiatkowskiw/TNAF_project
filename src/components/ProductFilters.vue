@@ -1,29 +1,50 @@
 <script setup lang="ts">
 import {useProductApi} from "@/composables/useProductApi";
 import CategoryFilter from "@/components/filters/CategoryFilter.vue";
-import {reactive, ref} from "vue";
-import {ICategory, IFilter, IPriceFilter} from "../../types";
+import {onBeforeMount, reactive, ref} from "vue";
+import type {ICategories, IFilter} from "../../types";
 import PriceFilter from "@/components/filters/PriceFilter.vue";
 
 const emit = defineEmits<{
   searchProducts: [filters: IFilter],
 }>()
 
-const filters = reactive<IFilter>({price_min: null, price_max: null, categoryId: null});
-
+const category = ref<ICategories>({data: [], total: 0});
 const {getCategories} = useProductApi();
-const categoryResponse = ref<ICategory[]>([]);
-categoryResponse.value = await getCategories();
 
-function changeCategory(categoryId: number | null) {
-  filters.categoryId = categoryId;
+onBeforeMount(async () => {
+  const categoryResponse = await getCategories();
+  if (categoryResponse) {
+    category.value = categoryResponse;
+  }
+})
+
+const filters = reactive<IFilter>({price_min: undefined, price_max: undefined, categoryId: undefined});
+
+function changeCategory(categoryId: number) {
+  filters.categoryId = `category.id=${categoryId}`;
   emit('searchProducts', filters);
 }
 
-function changePrice(price: IPriceFilter) {
-  filters.price_min = price.price_min;
-  filters.price_max = price.price_max;
-  emit('searchProducts', filters);
+function changePriceMin(price: number) {
+  if (!price) {
+    filters.price_min = undefined;
+    emit('searchProducts', filters);
+  } else {
+    filters.price_min = `price_gte=${price}`;
+    emit('searchProducts', filters);
+  }
+
+}
+
+function changePriceMax(price: number) {
+  if (!price) {
+    filters.price_max = undefined;
+    emit('searchProducts', filters);
+  } else {
+    filters.price_max = `price_lte=${price}`;
+    emit('searchProducts', filters);
+  }
 }
 
 </script>
@@ -31,6 +52,6 @@ function changePrice(price: IPriceFilter) {
 
 <template>
   <h4 class="filter-title" :style="{textAlign: 'center'}">Filters</h4>
-  <CategoryFilter :filters="categoryResponse" @change-category="changeCategory"/>
-  <PriceFilter @change-price="changePrice"/>
+  <CategoryFilter :filters="category.data" @change-category="changeCategory"/>
+  <PriceFilter @change-min="changePriceMin" @change-max="changePriceMax"/>
 </template>

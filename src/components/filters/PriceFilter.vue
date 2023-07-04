@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type {IPriceFilter} from "../../../types";
 import {useForm} from "vee-validate";
 import * as yup from 'yup';
-import {watchEffect} from "vue";
+import {watch} from "vue";
 
 const emit = defineEmits<{
-  changePrice: [price: IPriceFilter],
+  changeMin: [price_min: number],
+  changeMax: [price_max: number],
 }>()
 
 const {errors, defineInputBinds} = useForm({
@@ -20,12 +20,15 @@ const {errors, defineInputBinds} = useForm({
 const priceMin = defineInputBinds('price_min');
 const priceMax = defineInputBinds('price_max');
 
-watchEffect(() => {
-  if(priceMin.value.value <= 0 || priceMax.value.value <= 0){
-    emit('changePrice', <IPriceFilter>{price_min: null, price_max: null})
+watch(priceMin, (currentValue, oldValue) => {
+  if (currentValue != oldValue) {
+    emit('changeMin', priceMin.value.value)
   }
-  else if(priceMin.value.value > 0 && priceMax.value.value > 0){
-    emit('changePrice', <IPriceFilter>{price_min: priceMin.value.value, price_max: priceMax.value.value})
+})
+
+watch(priceMax, (currentValue, oldValue) => {
+  if (currentValue != oldValue) {
+    emit('changeMax', priceMax.value.value)
   }
 })
 
