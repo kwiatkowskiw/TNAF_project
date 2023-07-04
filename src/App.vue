@@ -2,10 +2,9 @@
   <div class="wrapper">
     <header>
       <img class="logo-image" src="./assets/img/logo.svg" alt="logo"/>
-      <nav>
+      <nav class="navigation">
         <router-link to="/">Home</router-link>
         <router-link to="/products">Products</router-link>
-        <a href="/">Contact</a>
       </nav>
     </header>
     <main>
@@ -23,3 +22,5 @@
     </footer>
   </div>
 </template>
+<script setup lang="ts">
+</script>

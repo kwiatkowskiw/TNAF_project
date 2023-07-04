@@ -31,6 +31,22 @@ body {
   margin-inline: auto;
 }
 
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: color.$clr-blue;
+    cursor: pointer;
+  }
+}
+
 h1 {
   font-size: font.$fs-700;
 }
