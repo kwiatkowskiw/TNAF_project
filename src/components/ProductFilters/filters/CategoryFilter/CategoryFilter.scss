@@ -6,12 +6,6 @@
   list-style-type: none;
 }
 
-@media (width < 958px) {
-  .category-filter {
-    flex-flow: row wrap;
-  }
-}
-
 .filter {
   &:hover {
     color: var(--clr-blue);
@@ -20,5 +14,11 @@
 
   &-active {
     color: var(--clr-blue);
+  }
+}
+
+@media (width < 958px) {
+  .category-filter {
+    flex-flow: row wrap;
   }
 }

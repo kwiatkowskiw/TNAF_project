@@ -50,3 +50,7 @@ watch(priceMax, (currentValue, oldValue) => {
     <div class="price-error">{{ errors.price_max }}</div>
   </form>
 </template>
+
+<style scoped lang="scss">
+@import "PriceFilter";
+</style>
