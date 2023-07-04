@@ -21,13 +21,13 @@ const priceMin = defineInputBinds('price_min');
 const priceMax = defineInputBinds('price_max');
 
 watch(priceMin, (currentValue, oldValue) => {
-  if (currentValue != oldValue) {
+  if (currentValue != oldValue && priceMin.value.value > 0) {
     emit('changeMin', priceMin.value.value)
   }
 })
 
 watch(priceMax, (currentValue, oldValue) => {
-  if (currentValue != oldValue) {
+  if (currentValue != oldValue && priceMax.value.value > 0) {
     emit('changeMax', priceMax.value.value)
   }
 })
@@ -50,3 +50,7 @@ watch(priceMax, (currentValue, oldValue) => {
     <div class="price-error">{{ errors.price_max }}</div>
   </form>
 </template>
+
+<style scoped lang="scss">
+@import "PriceFilter";
+</style>

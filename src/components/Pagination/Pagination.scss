@@ -1,12 +1,13 @@
 .pagination-container {
   display: flex;
-  column-gap: 10px;
+  flex-wrap: wrap;
+  column-gap: 0.625rem;
 }
 
 .paginate-buttons {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 1.25rem;
   cursor: pointer;
   background-color: rgb(242 242 242);
   border: 1px solid rgb(217 217 217);
