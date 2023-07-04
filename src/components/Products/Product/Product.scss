@@ -1,12 +1,9 @@
-@use '../colors' as color;
-@use '../fonts' as font;
-
 .product {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
-  background: color.$clr-background-secondary;
+  background: var(--clr-background-secondary);
   padding-top: 0.625rem;
   height: 100%;
 
@@ -41,15 +38,15 @@
   &-btn {
     margin-top: 1rem;
     width: 100%;
-    background: color.$secondary-btn;
+    background: var(--secondary-btn);
     padding-block: 1rem;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    font-size: font.$fs-300;
+    font-size: var(--fs-300);
 
     &:hover {
-      color: color.$clr-text-secondary;
-      background: color.$clr-500;
+      color: var(--clr-text-secondary);
+      background: var(--clr-500);
     }
   }
 }

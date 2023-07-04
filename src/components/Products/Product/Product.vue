@@ -21,3 +21,7 @@ const props = defineProps<{
     </router-link>
   </div>
 </template>
+
+<style scoped lang="scss">
+@import "Product";
+</style>

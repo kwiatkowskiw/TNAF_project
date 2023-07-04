@@ -6,7 +6,7 @@ import VueAwesomePaginate from "vue-awesome-paginate";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView/HomeView.vue";
-import ProductsView from "@/views/ProductsView.vue";
+import ProductsView from "@/views/ProductsView/ProductsView.vue";
 import ProductView from "@/views/ProductView.vue";
 
 const routes = [

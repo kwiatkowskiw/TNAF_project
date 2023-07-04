@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Product from "@/components/Product.vue";
-import ProductFilters from "@/components/ProductFilters.vue";
+import Product from "@/components/Products/Product/Product.vue";
+import ProductFilters from "@/components/ProductFilters/ProductFilters.vue";
 import {useProductApi} from "@/composables/useProductApi";
 import {ref} from "vue";
 import type {IFilter, IProducts} from "../../types";
-import Pagination from "@/components/Pagination.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
 
 const {getProducts, filterProducts} = useProductApi();
 
@@ -30,9 +30,7 @@ async function nextPage(page: number) {
 
 <template>
   <div class="products">
-    <aside class="products-filters">
-      <ProductFilters @search-products="filter"/>
-    </aside>
+    <ProductFilters @search-products="filter"/>
     <template v-if="products.data.length > 0">
       <div class="products-container" :class="loadingProducts && 'products-suspense-view'">
         <section class="products-pagination">
@@ -54,3 +52,7 @@ async function nextPage(page: number) {
     </template>
   </div>
 </template>
+
+<style scoped lang="scss">
+@import "@/components/Products/Products";
+</style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ProductDetails from "@/components/ProductDetails.vue";
+import ProductDetails from "@/components/ProductDetails/ProductDetails.vue";
 import Spinner from "@/components/Spinner.vue";
 </script>
 

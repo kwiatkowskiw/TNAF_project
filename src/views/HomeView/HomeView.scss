@@ -1,5 +1,3 @@
-@use '../colors' as color;
-
 .home {
   display: flex;
   flex-direction: column;
@@ -7,7 +5,7 @@
   padding: 2rem;
   gap: 2rem;
   margin-bottom: auto;
-  background-color: color.$clr-background-secondary;
+  background-color: var(--clr-background-secondary);
   border-radius: 8px;
 
   &-image {
@@ -33,7 +31,7 @@
 
   &-icon {
     padding: 2rem;
-    background-color: color.$clr-background;
+    background-color: var(--clr-background);
     border-radius: 6px;
   }
 }

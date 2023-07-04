@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {ICategory} from "../../../types";
+import type {ICategory} from "@/../types";
 import {ref} from "vue";
 
 const props = defineProps<{
@@ -31,3 +31,7 @@ function setActiveItem(id: number) {
     </li>
   </ul>
 </template>
+
+<style scoped lang="scss">
+@import "CategoryFilter";
+</style>

@@ -1,5 +1,3 @@
-@use '../colors' as color;
-
 .product-details {
   display: flex;
   justify-content: center;
@@ -38,5 +36,5 @@
 }
 
 .image-active {
-  border: 6px solid color.$clr-500;
+  border: 6px solid var(--clr-500);
 }

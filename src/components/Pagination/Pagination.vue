@@ -17,7 +17,7 @@ const onClickHandler = (page: number) => {
 };
 
 watch(() => props.productsLength, (newValue, oldValue) => {
-  if(newValue !== oldValue){
+  if (newValue !== oldValue) {
     currentPage.value = 1;
   }
 });
@@ -32,3 +32,7 @@ watch(() => props.productsLength, (newValue, oldValue) => {
     />
   </div>
 </template>
+
+<style lang="scss">
+@import "Pagination";
+</style>

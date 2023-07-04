@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {useProductApi} from "@/composables/useProductApi";
-import CategoryFilter from "@/components/filters/CategoryFilter.vue";
+import CategoryFilter from "@/components/ProductFilters/filters/CategoryFilter/CategoryFilter.vue";
 import {onBeforeMount, reactive, ref} from "vue";
 import type {ICategories, IFilter} from "../../types";
-import PriceFilter from "@/components/filters/PriceFilter.vue";
+import PriceFilter from "@/components/ProductFilters/filters/PriceFilter/PriceFilter.vue";
 
 const emit = defineEmits<{
   searchProducts: [filters: IFilter],
@@ -49,9 +49,14 @@ function changePriceMax(price: number) {
 
 </script>
 
-
 <template>
-  <h4 class="filter-title" :style="{textAlign: 'center'}">Filters</h4>
-  <CategoryFilter :filters="category.data" @change-category="changeCategory"/>
-  <PriceFilter @change-min="changePriceMin" @change-max="changePriceMax"/>
+  <div class="products-filters">
+    <h4 class="filter-title" :style="{textAlign: 'center'}">Filters</h4>
+    <CategoryFilter :filters="category.data" @change-category="changeCategory"/>
+    <PriceFilter @change-min="changePriceMin" @change-max="changePriceMax"/>
+  </div>
 </template>
+
+<style scoped lang="scss">
+@import "@/components/ProductFilters/ProductFilters";
+</style>
