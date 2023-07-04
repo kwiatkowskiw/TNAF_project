@@ -13,6 +13,7 @@ products.value = await getProducts();
 const currentFilters = ref<IFilter>();
 
 const loadingProducts = ref<boolean>(false)
+
 async function filter(filters: IFilter) {
   loadingProducts.value = true;
   currentFilters.value = filters;
@@ -35,10 +36,11 @@ async function nextPage(page: number) {
     <template v-if="products.data.length > 0">
       <div class="products-container" :class="loadingProducts && 'products-suspense-view'">
         <section class="products-pagination">
-          <Pagination :productsLength="products.total" @change-page="nextPage"/>
+          <Pagination :productsLength="products.total!" @change-page="nextPage"/>
         </section>
         <section class="products-view">
           <Product v-for="product in products.data" :key="product.id"
+                   :id="product.id"
                    :title="product.title"
                    :images="product.images"
                    :price="product.price"

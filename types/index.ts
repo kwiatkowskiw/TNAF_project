@@ -7,29 +7,29 @@ export type IProduct = {
   images: string[];
 };
 
-export type IProducts = {
-  data: IProduct[];
-  total: number;
-};
-
-export type ICategories = {
-  data: ICategory[];
-  total: number;
-};
-
 export type ICategory = {
   id: number;
   name: string;
   image: string;
 };
 
-export type IPriceFilter = {
-  price_min: string;
-  price_max: string;
-};
-
 export type IFilter = {
   categoryId: string | undefined;
   price_min: string | undefined;
   price_max: string | undefined;
+};
+
+export type IProductsPromise = {
+  data: IProduct[];
+  total: number;
+};
+
+export type IProductPromise = {
+  data: IProduct;
+  total?: number;
+};
+
+export type ICategoriesPromise = {
+  data: ICategory[];
+  total?: number;
 };
