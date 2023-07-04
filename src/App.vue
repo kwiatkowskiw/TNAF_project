@@ -2,10 +2,9 @@
   <div class="wrapper">
     <header>
       <img class="logo-image" src="./assets/img/logo.svg" alt="logo"/>
-      <nav>
+      <nav class="navigation">
         <router-link to="/">Home</router-link>
         <router-link to="/products">Products</router-link>
-        <a href="/">Contact</a>
       </nav>
     </header>
     <main>
@@ -16,10 +15,8 @@
         <h3>TNAF Project</h3>
         <span>designed by Wiktor Kwiatkowski</span>
       </div>
-      <div class="footer-logos">
-        <i class="gg-instagram"></i>
-        <i class="gg-facebook"></i>
-      </div>
     </footer>
   </div>
 </template>
+<script setup lang="ts">
+</script>
