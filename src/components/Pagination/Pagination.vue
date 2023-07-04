@@ -23,7 +23,7 @@ watch(() => props.productsLength, (newValue, oldValue) => {
 });
 </script>
 <template>
-  <div>
+  <div class="pagination">
     <vue-awesome-paginate
         :total-items="productsLength"
         :items-per-page="6"
