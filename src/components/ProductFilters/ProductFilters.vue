@@ -58,5 +58,5 @@ function changePriceMax(price: number) {
 </template>
 
 <style scoped lang="scss">
-@import "@/components/ProductFilters/ProductFilters";
+@import "ProductFilters";
 </style>

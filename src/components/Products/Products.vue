@@ -54,5 +54,5 @@ async function nextPage(page: number) {
 </template>
 
 <style scoped lang="scss">
-@import "@/components/Products/Products";
+@import "Products";
 </style>
