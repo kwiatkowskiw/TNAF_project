@@ -7,7 +7,13 @@
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "start_api": "node server/server.js --watch server/db.json",
+    "prettier_fix": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "lint": "eslint --ext .js,.ts .",
+    "lint_fix": "eslint --ext .js,.ts . --fix",
+    "style_lint": "stylelint \"**/*.{css,scss,sass}\"",
+    "style_lint_fix": "stylelint \"**/*.{css,scss,sass}\" --fix"
   },
   "dependencies": {
     "vee-validate": "^4.10.3",
