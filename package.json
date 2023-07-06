@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "build-only": "vite build --base=/TNAF_project/",
+    "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "start_api": "node server/server.js --watch server/db.json",
     "prettier_fix": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
