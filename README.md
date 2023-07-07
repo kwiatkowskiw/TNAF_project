@@ -3,7 +3,7 @@
 
 Aplikacja do przeglądania produktów z możliwością filtrowania produktów pod względem kategorii oraz minimalnej i maksymalnej ceny produktu. Przy przeglądaniu produktów została zastosowana paginacja. Aplikacja została udostępniona jako GitHubPages.
 ## 
-Strona internetowa: https://kwiatkowskiw.github.io/TNAF_project/ , jednakże do jego działania wymaga uruchomienia JSON-SERVER
+Strona internetowa: [https://tnaf-project.netlify.app/] , jednakże do jego działania wymaga uruchomienia JSON-SERVER
 
 
 
