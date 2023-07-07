@@ -3,13 +3,13 @@ import Product from "@/components/Products/Product/Product.vue";
 import ProductFilters from "@/components/ProductFilters/ProductFilters.vue";
 import {useProductApi} from "@/composables/useProductApi";
 import {ref} from "vue";
-import type {IFilter, IProducts} from "../../types";
+import type {IFilter, IProductsPromise} from "../../../types";
 import Pagination from "@/components/Pagination/Pagination.vue";
 
 const {getProducts, filterProducts} = useProductApi();
 
-const products = ref<IProducts>({data: [], total: 0});
-products.value = await getProducts();
+const productResponse = await getProducts();
+const products = ref<IProductsPromise>({data: productResponse.data, total: productResponse.total})
 const currentFilters = ref<IFilter>();
 
 const loadingProducts = ref<boolean>(false)

@@ -17,7 +17,7 @@ export const useProductApi = () => {
     );
   }
 
-  async function getProduct(id: number): Promise<IProductPromise> {
+  async function getProduct(id: string | string[]): Promise<IProductPromise> {
     return fetch(`http://localhost:3000/products?id=${id}`).then((response) => {
       if (!response.ok) {
         throw new Error(response.statusText);

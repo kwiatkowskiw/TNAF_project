@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import {useRoute} from "vue-router";
 import {useProductApi} from "@/composables/useProductApi";
-import type {IProduct, IProductPromise} from "../../types";
+import type {IProduct} from "../../../types";
 import {ref} from "vue";
 
 const {getProduct} = useProductApi();
 
 const route = useRoute();
 
-const productResponse: IProductPromise = await getProduct(route.params.id);
+const productResponse = await getProduct(route.params.id);
 const product = ref<IProduct>(productResponse.data[0]);
 
 const activeImageId = ref<number>(0);
